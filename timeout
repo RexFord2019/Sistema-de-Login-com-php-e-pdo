@@ -1,0 +1,11 @@
+<?php
+if (!isset($_SESSION['timeout_idle'])) {
+    $_SESSION['timeout_idle'] = time() + MAX_IDLE_TIME;
+} else {
+    if ($_SESSION['timeout_idle'] < time()) {   
+        //destroy session
+    } else {
+        $_SESSION['timeout_idle'] = time() + MAX_IDLE_TIME;
+    }
+}
+?>
